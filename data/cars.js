@@ -8,6 +8,14 @@ export const dealership = {
   tagline: "Step inside the car before you visit.",
 };
 
+export const defaultHotspots = [
+  { label: "Front", time: 0, x: 17, y: 56 },
+  { label: "Wheels", time: 18, x: 42, y: 70 },
+  { label: "Interior", time: 35, x: 51, y: 43 },
+  { label: "Rear", time: 65, x: 83, y: 56 },
+  { label: "Condition", time: 95, x: 64, y: 52 }
+];
+
 export const cars = [
   {
     slug: "hyundai-tucson",
@@ -22,13 +30,7 @@ export const cars = [
     walkaroundVideo: "/videos/sample-landscape.mp4",
     poster: "/images/sample-poster.svg",
     details: [["Mileage","TBC"],["Fuel","TBC"],["Gearbox","TBC"],["Body","SUV"]],
-    hotspots: [
-      { label: "Front", time: 0, x: 16, y: 58 },
-      { label: "Wheels", time: 18, x: 41, y: 73 },
-      { label: "Interior", time: 35, x: 50, y: 42 },
-      { label: "Rear", time: 65, x: 84, y: 58 },
-      { label: "Condition", time: 95, x: 65, y: 52 }
-    ]
+    hotspots: defaultHotspots
   },
   {
     slug: "subaru-impreza",
@@ -43,13 +45,7 @@ export const cars = [
     walkaroundVideo: "/videos/sample-landscape.mp4",
     poster: "/images/sample-poster.svg",
     details: [["Mileage","TBC"],["Fuel","Petrol"],["Gearbox","TBC"],["Body","Hatchback"]],
-    hotspots: [
-      { label: "Front", time: 0, x: 16, y: 58 },
-      { label: "Wheels", time: 18, x: 41, y: 73 },
-      { label: "Interior", time: 35, x: 50, y: 42 },
-      { label: "Rear", time: 65, x: 84, y: 58 },
-      { label: "Condition", time: 95, x: 65, y: 52 }
-    ]
+    hotspots: defaultHotspots
   }
 ];
 

@@ -13,7 +13,7 @@ export default function InspectBay({ car, onClose, onJump }) {
           <button className="close" onClick={onClose}>×</button>
         </div>
         <div className="inspect-visual-wrap">
-          <div className="inspect-visual">
+          <div className="inspect-frame">
             <img src="/images/inspect-car.png" alt="Vehicle inspection graphic" />
             {car.hotspots.map((spot) => (
               <button key={spot.label} className="hotspot" style={{ "--x": spot.x, "--y": spot.y }} onClick={() => onJump(spot.time)}>

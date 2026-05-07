@@ -14,7 +14,7 @@ function DetailsCard({ car }) {
   );
 }
 
-function AskCard({ car, question, setQuestion, message, cleanPhone, whatsAppNumber }) {
+function AskCard({ question, setQuestion, message, cleanPhone, whatsAppNumber }) {
   return (
     <div className="glass-card">
       <h2>Ask</h2>
@@ -40,7 +40,7 @@ function InspectCard({ onClick }) {
 export default function Showroom({ car }) {
   const videoRef = useRef(null);
   const [inspectOpen, setInspectOpen] = useState(false);
-  const [uiHidden, setUiHidden] = useState(false);
+  const [cleanMode, setCleanMode] = useState(false);
   const [question, setQuestion] = useState("");
 
   useEffect(() => {
@@ -61,35 +61,34 @@ export default function Showroom({ car }) {
   const message = encodeURIComponent(`Hi, I'm interested in the ${car.title}. ${question ? "My question is: " + question : "Can you tell me more about it?"}`);
 
   return (
-    <main className="showroom-page" style={{ "--accent": dealership.accent, "--accent2": dealership.accent2 }}>
+    <main className={`showroom-page ${cleanMode ? "clean-mode" : ""}`} style={{ "--accent": dealership.accent, "--accent2": dealership.accent2 }}>
       <section className="showroom-video-area">
         <img className="walk-video" src={car.poster} alt="" aria-hidden="true" />
         <video ref={videoRef} className="walk-video" src={car.walkaroundVideo} poster={car.poster} autoPlay muted loop playsInline controls preload="metadata" />
-        <div className={`video-gradient ${uiHidden ? "clean" : ""}`} />
+        <div className="video-gradient" />
 
-        <motion.div className={`showroom-overlay ${uiHidden ? "hidden-ui" : ""}`} initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, ease: [0.2, 0.8, 0.2, 1] }}>
+        <motion.div className="showroom-overlay" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, ease: [0.2, 0.8, 0.2, 1] }}>
           <div className="overlay-inner">
             <div className="main-copy">
               <h1>{car.title}</h1>
               <div className="keybar"><span>{car.price}</span><span>{car.mileage}</span><span>{car.fuel}</span><span>{car.gearbox}</span><span>{car.body}</span></div>
             </div>
-
             <div className="floating-panel">
               <InspectCard onClick={() => setInspectOpen(true)} />
               <DetailsCard car={car} />
-              <AskCard car={car} question={question} setQuestion={setQuestion} message={message} cleanPhone={cleanPhone} whatsAppNumber={whatsAppNumber} />
+              <AskCard question={question} setQuestion={setQuestion} message={message} cleanPhone={cleanPhone} whatsAppNumber={whatsAppNumber} />
             </div>
           </div>
         </motion.div>
 
-        <div className={`video-tools ${uiHidden ? "hidden-dock" : ""}`}>
-          <button className="btn btn-glass" onClick={() => setUiHidden(true)}><Eye size={15}/> Clean View</button>
+        <div className="video-tools">
+          <button className="btn btn-glass" onClick={() => setCleanMode(true)}><Eye size={15}/> Clean View</button>
           <button className="btn btn-accent" onClick={() => setInspectOpen(true)}><Search size={15}/> Inspect</button>
           <a className="btn btn-white" href={`https://wa.me/${whatsAppNumber}?text=${message}`}>Enquire</a>
         </div>
 
-        <div className={`clean-tools ${uiHidden ? "show" : ""}`}>
-          <button className="btn btn-glass" onClick={() => setUiHidden(false)}>Show Details</button>
+        <div className="clean-tools">
+          <button className="btn btn-glass" onClick={() => setCleanMode(false)}>Show Details</button>
           <button className="btn inspect-clean-btn" onClick={() => setInspectOpen(true)}><Search size={15}/> Inspect</button>
         </div>
       </section>
@@ -98,7 +97,7 @@ export default function Showroom({ car }) {
         <div className="mobile-info-stack">
           <InspectCard onClick={() => setInspectOpen(true)} />
           <DetailsCard car={car} />
-          <AskCard car={car} question={question} setQuestion={setQuestion} message={message} cleanPhone={cleanPhone} whatsAppNumber={whatsAppNumber} />
+          <AskCard question={question} setQuestion={setQuestion} message={message} cleanPhone={cleanPhone} whatsAppNumber={whatsAppNumber} />
         </div>
       </section>
 

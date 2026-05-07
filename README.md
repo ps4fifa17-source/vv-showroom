@@ -1,14 +1,19 @@
-# Value Vehicles Showroom V13 Premium
+# Value Vehicles Showroom V14 Calibrated
 
-## V13 fixes
-- Removed the Interactive Walkaround pill completely.
-- Clean View now hides header, side panels, overlay, gradients and bottom dock.
-- Clean View leaves only small Show Details + Inspect controls.
-- Desktop side panel now has max-height and scroll so it fits on Mac.
-- Mobile car page now has Details / Ask / Inspect below the video, so users can scroll to them.
-- Inspect button now uses a clear search/magnifier icon, not an unclear orb.
-- Homepage keeps purple Value Vehicles gradient atmosphere.
-- Inspect car image remains neutral and universal.
+## V14 fixes
+- Added /calibrate page to accurately drag hotspot dots onto the inspect image.
+- Inspect mode uses one fixed image wrapper, so dot coordinates behave consistently on Mac and phone.
+- Inspect opens with car visible immediately on mobile. No scrolling to find it.
+- Clean View is now a real page-level mode. It hides the header, overlays, gradients and bottom dock.
+- Mobile still has Details / Ask / Inspect underneath the video page when not in clean mode.
+- Desktop side panel scrolls if there is not enough height.
+
+## Calibrate hotspots
+Open:
+/calibrate
+
+Drag the dots onto the car.
+Copy the code into data/cars.js.
 
 ## Replace inspect car
 public/images/inspect-car.png
