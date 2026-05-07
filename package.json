@@ -1,6 +1,6 @@
 {
-  "name": "value-vehicles-showroom-v21-mobile-rebuild",
-  "version": "21.0.0",
+  "name": "value-vehicles-showroom-v23-mobile-corrected",
+  "version": "23.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

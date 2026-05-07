@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export default function PremiumVideo({ src, wrapperClassName = "", videoClassName = "" }) {
+export default function PremiumVideo({ src, className = "" }) {
   const ref = useRef(null);
   const lastSrc = useRef(src);
   const [ready, setReady] = useState(false);
@@ -16,9 +16,7 @@ export default function PremiumVideo({ src, wrapperClassName = "", videoClassNam
       if (!el) return;
       el.muted = true;
       el.playsInline = true;
-      try {
-        await el.play();
-      } catch (_) {}
+      try { await el.play(); } catch (_) {}
     }
 
     if (lastSrc.current !== src) {
@@ -28,7 +26,6 @@ export default function PremiumVideo({ src, wrapperClassName = "", videoClassNam
     }
 
     playOnly();
-
     window.addEventListener("pageshow", playOnly);
     window.addEventListener("focus", playOnly);
     document.addEventListener("visibilitychange", playOnly);
@@ -41,10 +38,9 @@ export default function PremiumVideo({ src, wrapperClassName = "", videoClassNam
   }, [src]);
 
   return (
-    <div className={`video-shell ${ready ? "video-ready" : ""} ${wrapperClassName}`}>
+    <div className={`video-box ${ready ? "ready" : ""} ${className}`}>
       <video
         ref={ref}
-        className={videoClassName}
         src={src}
         autoPlay
         muted
@@ -55,10 +51,7 @@ export default function PremiumVideo({ src, wrapperClassName = "", videoClassNam
         disablePictureInPicture
         controlsList="nodownload nofullscreen noremoteplayback"
         onLoadedData={() => setReady(true)}
-        onCanPlay={() => {
-          setReady(true);
-          ref.current?.play().catch(() => {});
-        }}
+        onCanPlay={() => { setReady(true); ref.current?.play().catch(() => {}); }}
       />
     </div>
   );

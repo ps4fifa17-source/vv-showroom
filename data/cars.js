@@ -18,8 +18,8 @@ export const cars = [
     gearbox: "Gearbox TBC",
     body: "SUV",
     status: "Available",
-    teaserVideo: "https://res.cloudinary.com/ddtyeuc0u/video/upload/q_auto/f_auto/v1778163604/sample-portrait_f0w6hk.mp4",
-    walkaroundVideo: "https://res.cloudinary.com/ddtyeuc0u/video/upload/q_auto/f_auto/v1778163742/lanscape-sample_gk4fqy.mp4",
+    teaserVideo: "/videos/sample-portrait.mp4",
+    walkaroundVideo: "/videos/sample-landscape.mp4",
     details: [["Mileage","TBC"],["Fuel","TBC"],["Gearbox","TBC"],["Body","SUV"]],
     inspectVideos: [
       { label: "Interior", icon: "seat", video: "/videos/sample-landscape.mp4", preview: "/videos/sample-portrait.mp4" },

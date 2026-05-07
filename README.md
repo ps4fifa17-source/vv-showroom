@@ -1,14 +1,13 @@
-# Value Vehicles Showroom V21 Mobile Rebuild
+# Value Vehicles Showroom V23 Mobile Corrected
 
-## V21 changes
-- Mobile normal view gets a larger landscape walkaround.
-- Cinema mode remains full-screen video.
-- Mobile Inspect tab now scrolls to the inspect section instead of opening the popup.
-- Cinema Inspect still opens the fade overlay.
-- Desktop/Mac keeps compact side-panel inspect widget.
-- Portrait inspect cards remain for mobile/popup.
-- Extra mobile bottom padding for Safari + dock.
-- Desktop side panel no longer uses giant portrait preview cards.
+## V23 changes
+- Mobile normal view is the big zoomed-in cinematic hero fading into the page.
+- Mobile Cinema mode is landscape video with inspect cards directly below it.
+- Mobile Inspect tab scrolls to the inspect section.
+- No separate inspect popup on mobile.
+- Desktop/Mac keeps compact side widget.
+- Inspect includes Walkaround return card.
+- Extra mobile bottom padding for browser bar and dock.
 
 ## Cloudinary
 Replace local paths in data/cars.js with Cloudinary URLs.
