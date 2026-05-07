@@ -1,1 +1,0 @@
-This version includes an auto-cleaned transparent inspect-car.png. For best results, replace with a proper transparent PNG car only.
