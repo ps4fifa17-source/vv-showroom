@@ -1,31 +1,19 @@
-# Value Vehicles Showroom V15 Clean Inspect
+# Value Vehicles Showroom V17 Inspect Pills
 
-## V15 fixes
-- Clean View now applies a body-level class, so it hides the whole interface including the header.
-- Clean View removes native video controls while active.
-- Clean View makes the video fixed fullscreen.
-- Includes an auto-cleaned transparent inspect-car.png placeholder.
-- Inspect frame no longer shows a black rectangle if the image has transparency.
-- Calibration page remains at /calibrate for dot placement.
+## V17 fixes
+- Removed old inspect silhouette/orb/hotspot system from the real user flow.
+- Added premium Inspect Vehicle video pills.
+- Clicking an inspect pill switches the main landscape player to that section clip.
+- If a clip is missing from inspectVideos, that pill does not show.
+- Added reusable PremiumVideo component for stable autoplay.
+- Homepage videos retry playback on pageshow, visibilitychange and focus.
+- Removed fake poster/ghost car loading layers.
+- Removed native video controls.
+- Homepage portrait cards are cleaner: title, price, enter showroom only.
+- Correct Value Vehicles phone number: 01206 413177.
+- Correct WhatsApp number: 07939885608.
+- Mobile has quick shortcut icons: Inspect, Details, Ask, Call.
+- Mobile landscape video uses blurred cinematic background + sharp landscape foreground.
 
-## Important
-If you replace inspect-car.png with a normal image that has a black background, the black box will return.
-You need a true transparent PNG: car only, transparent background.
-
-## Calibrate hotspots
-Open:
-/calibrate
-
-Drag dots and copy code into data/cars.js.
-
-## Upload to GitHub
-Upload:
-app
-components
-data
-public
-package.json
-next.config.js
-README.md
-
-Do not upload node_modules.
+## Cloudinary
+Replace local video paths in data/cars.js with Cloudinary URLs.

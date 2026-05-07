@@ -1,15 +1,17 @@
 import Header from "../components/Header";
 import PortraitCard from "../components/PortraitCard";
+import PremiumVideo from "../components/PremiumVideo";
 import { cars, dealership } from "../data/cars";
 
 export default function Home() {
   const heroVideo = cars[0]?.teaserVideo || "/videos/sample-portrait.mp4";
+
   return (
     <>
       <Header />
       <main style={{ "--accent": dealership.accent, "--accent2": dealership.accent2 }}>
         <section className="home-hero">
-          <video className="home-hero-video" src={heroVideo} autoPlay muted loop playsInline preload="metadata" />
+          <PremiumVideo src={heroVideo} wrapperClassName="home-video-wrap" />
           <div className="container">
             <div className="hero-content">
               <h1 className="home-title">{dealership.tagline}</h1>
@@ -21,13 +23,19 @@ export default function Home() {
             </div>
           </div>
         </section>
+
         <section id="stock" className="feed-zone">
           <div className="container">
             <div className="feed-head">
-              <div><h2>Video stock</h2><p className="muted">Tap a portrait space to enter the showroom.</p></div>
+              <div>
+                <h2>Video stock</h2>
+                <p className="muted">Tap a portrait space to enter the showroom.</p>
+              </div>
               <p className="muted">{cars.length} shown</p>
             </div>
-            <div className="portrait-rail">{cars.map((car) => <PortraitCard key={car.slug} car={car} />)}</div>
+            <div className="portrait-rail">
+              {cars.map((car) => <PortraitCard key={car.slug} car={car} />)}
+            </div>
           </div>
         </section>
       </main>

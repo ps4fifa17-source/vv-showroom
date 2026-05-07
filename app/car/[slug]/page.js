@@ -10,5 +10,5 @@ export function generateStaticParams() {
 export default function CarPage({ params }) {
   const car = getCar(params.slug);
   if (!car) notFound();
-  return (<><Header /><Showroom car={car} /></>);
+  return <><Header /><Showroom car={car} /></>;
 }
