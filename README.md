@@ -1,30 +1,21 @@
-# Value Vehicles Showroom V12 Premium
+# Value Vehicles Showroom V13 Premium
 
-## V12 changes
-- Purple gradient atmosphere restored for Value Vehicles.
-- Inspect car remains neutral/universal.
-- Removed the large ugly inspect promo block.
-- Inspect is now an integrated side-panel card on desktop.
-- Clean View hides the interface but leaves a tiny inspect widget.
-- Inspect opens fullscreen.
-- Font weight/spacing reduced for a cleaner premium feel.
-- Details/Ask card softened.
-- Desktop and mobile have separate responsive behaviour.
+## V13 fixes
+- Removed the Interactive Walkaround pill completely.
+- Clean View now hides header, side panels, overlay, gradients and bottom dock.
+- Clean View leaves only small Show Details + Inspect controls.
+- Desktop side panel now has max-height and scroll so it fits on Mac.
+- Mobile car page now has Details / Ask / Inspect below the video, so users can scroll to them.
+- Inspect button now uses a clear search/magnifier icon, not an unclear orb.
+- Homepage keeps purple Value Vehicles gradient atmosphere.
+- Inspect car image remains neutral and universal.
 
 ## Replace inspect car
-Put your new monochrome render here:
 public/images/inspect-car.png
 
-Keep the exact filename.
-
-## Add real logo
-Put your logo here:
+## Add logo
 public/images/value-logo.png
-
-Then open data/cars.js and change:
-logo: ""
-
-to:
+Then in data/cars.js set:
 logo: "/images/value-logo.png"
 
 ## Upload to GitHub

@@ -3,7 +3,7 @@ import { dealership } from "../data/cars";
 
 export default function InspectBay({ car, onClose, onJump }) {
   return (
-    <motion.div className="inspect-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} style={{ "--accent": dealership.accent, "--accent2": "#b85cff" }}>
+    <motion.div className="inspect-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} style={{ "--accent": dealership.accent, "--accent2": dealership.accent2 }}>
       <motion.div className="inspect-bay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.42, ease: [0.2, 0.8, 0.2, 1] }}>
         <div className="inspect-top">
           <div>

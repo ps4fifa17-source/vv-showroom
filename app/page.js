@@ -7,12 +7,11 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main style={{ "--accent": dealership.accent, "--accent2": "#b85cff" }}>
+      <main style={{ "--accent": dealership.accent, "--accent2": dealership.accent2 }}>
         <section className="home-hero">
           <video className="home-hero-video" src={heroVideo} autoPlay muted loop playsInline preload="metadata" />
           <div className="container">
             <div className="hero-content">
-              <span className="kicker"><span className="live-dot" /> Interactive Walkaround</span>
               <h1 className="home-title">{dealership.tagline}</h1>
               <p className="home-sub">Portrait previews, full walkarounds and interactive vehicle inspection.</p>
               <div className="home-actions">

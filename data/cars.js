@@ -2,16 +2,9 @@ export const dealership = {
   name: "Value Vehicles",
   phone: "01621 928100",
   whatsapp: "01621928100",
-
-  // Add real logo later:
-  // public/images/value-logo.png
-  // then set logo: "/images/value-logo.png"
   logo: "",
-
-  // Purple is the Value Vehicles website accent.
-  // Change this per dealership later.
   accent: "#732b97",
-
+  accent2: "#b85cff",
   tagline: "Step inside the car before you visit.",
 };
 
