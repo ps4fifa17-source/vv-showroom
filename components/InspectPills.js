@@ -10,27 +10,27 @@ const iconMap = {
   shield: ShieldCheck,
 };
 
-export default function InspectPills({ clips = [], activeVideo, onSelect }) {
+export default function InspectPills({ clips = [], activeClip, onSelect, compact = false }) {
   const available = clips.filter((clip) => clip?.video);
   if (!available.length) return null;
 
   return (
-    <div className="glass-card inspect-card" id="inspect">
-      <h2>Inspect Vehicle</h2>
-      <p>Choose an area and the showroom video switches straight to that section.</p>
-
-      <div className="inspect-pill-grid">
-        {available.map((clip) => {
-          const Icon = iconMap[clip.icon] || Play;
-          const isActive = activeVideo === clip.video;
-          return (
-            <button key={`${clip.label}-${clip.video}`} className={`inspect-pill ${isActive ? "active" : ""}`} onClick={() => onSelect(clip.video)}>
-              <span className="inspect-pill-icon"><Icon size={16} /></span>
-              <span><strong>{clip.label}</strong><small>{isActive ? "Playing now" : "View clip"}</small></span>
-            </button>
-          );
-        })}
-      </div>
+    <div className={compact ? "inspect-popup-list" : "inspect-pill-grid"}>
+      {available.map((clip) => {
+        const Icon = iconMap[clip.icon] || Play;
+        const isActive = activeClip === clip.label;
+        return (
+          <button
+            type="button"
+            key={`${clip.label}-${clip.video}`}
+            className={`inspect-pill ${isActive ? "active" : ""} ${compact ? "compact" : ""}`}
+            onClick={() => onSelect(clip)}
+          >
+            <span className="inspect-pill-icon"><Icon size={16} /></span>
+            <span><strong>{clip.label}</strong><small>{isActive ? "Playing now" : "View clip"}</small></span>
+          </button>
+        );
+      })}
     </div>
   );
 }

@@ -1,7 +1,7 @@
  "use client";
 
-import { motion } from "framer-motion";
-import { Search, Eye, MessageCircle, Phone, Info, Send, PhoneCall } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Search, Eye, MessageCircle, Phone, Info, Send, PhoneCall, X, Video, Maximize2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { dealership } from "../data/cars";
 import PremiumVideo from "./PremiumVideo";
@@ -29,37 +29,58 @@ function AskCard({ question, setQuestion, message, cleanPhone, whatsAppNumber })
   );
 }
 
+function InspectSection({ car, activeClip, onSelect }) {
+  if (!car.inspectVideos?.filter((clip) => clip.video).length) return null;
+  return (
+    <div className="glass-card inspect-card" id="inspect">
+      <h2>Inspect Vehicle</h2>
+      <p>Choose an area and the showroom video switches straight to that section.</p>
+      <InspectPills clips={car.inspectVideos} activeClip={activeClip} onSelect={onSelect} />
+    </div>
+  );
+}
+
 export default function Showroom({ car }) {
   const [cleanMode, setCleanMode] = useState(false);
+  const [inspectMenu, setInspectMenu] = useState(false);
   const [question, setQuestion] = useState("");
   const [currentVideo, setCurrentVideo] = useState(car.walkaroundVideo);
+  const [activeClip, setActiveClip] = useState("Walkaround");
 
   useEffect(() => {
     document.body.classList.toggle("clean-site", cleanMode);
     return () => document.body.classList.remove("clean-site");
   }, [cleanMode]);
 
-  useEffect(() => setCurrentVideo(car.walkaroundVideo), [car.walkaroundVideo]);
+  useEffect(() => {
+    setCurrentVideo(car.walkaroundVideo);
+    setActiveClip("Walkaround");
+  }, [car.walkaroundVideo]);
 
   const cleanPhone = dealership.phone.replaceAll(" ", "");
   const whatsAppNumber = "44" + dealership.whatsapp.replace(/^0/, "");
   const message = encodeURIComponent(`Hi, I'm interested in the ${car.title}. ${question ? "My question is: " + question : "Can you tell me more about it?"}`);
 
   function scrollToSection(id) {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    setCleanMode(false);
+    setInspectMenu(false);
+    setTimeout(() => {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 60);
   }
 
-  function selectInspectClip(video) {
-    setCurrentVideo(video);
-    setCleanMode(false);
-    if (typeof window !== "undefined" && window.innerWidth <= 920) {
+  function selectInspectClip(clip) {
+    setCurrentVideo(clip.video);
+    setActiveClip(clip.label);
+    setInspectMenu(false);
+    if (!cleanMode && typeof window !== "undefined" && window.innerWidth <= 920) {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   }
 
   return (
     <main className={`showroom-page ${cleanMode ? "clean-mode" : ""}`} style={{ "--accent": dealership.accent, "--accent2": dealership.accent2 }}>
-      <section className="showroom-video-area">
+      <section className="showroom-video-area" id="video">
         <PremiumVideo src={currentVideo} wrapperClassName="mobile-blur-wrap" />
         <PremiumVideo src={currentVideo} wrapperClassName="walk-video-wrap" />
         <div className="video-gradient" />
@@ -72,38 +93,57 @@ export default function Showroom({ car }) {
             </div>
 
             <div className="floating-panel">
-              <InspectPills clips={car.inspectVideos} activeVideo={currentVideo} onSelect={selectInspectClip} />
+              <InspectSection car={car} activeClip={activeClip} onSelect={selectInspectClip} />
               <DetailsCard car={car} />
               <AskCard question={question} setQuestion={setQuestion} message={message} cleanPhone={cleanPhone} whatsAppNumber={whatsAppNumber} />
             </div>
           </div>
         </motion.div>
 
-        <div className="video-tools">
-          <button className="btn btn-glass" onClick={() => setCleanMode(true)}><Eye size={15}/> Clean View</button>
-          <button className="btn btn-accent" onClick={() => scrollToSection("inspect")}><Search size={15}/> Inspect</button>
+        <div className="mobile-video-dock">
+          <button type="button" onClick={() => setCleanMode(true)}><Maximize2 size={16}/><span>Cinema</span></button>
+          <button type="button" onClick={() => scrollToSection("inspect")}><Search size={16}/><span>Inspect</span></button>
+          <button type="button" onClick={() => scrollToSection("details")}><Info size={16}/><span>Details</span></button>
+          <button type="button" onClick={() => scrollToSection("ask")}><Send size={16}/><span>Ask</span></button>
+          <a href={`tel:${cleanPhone}`}><PhoneCall size={16}/><span>Call</span></a>
+        </div>
+
+        <div className="desktop-tools">
+          <button type="button" className="btn btn-glass" onClick={() => setCleanMode(true)}><Eye size={15}/> Clean View</button>
+          <button type="button" className="btn btn-accent" onClick={() => scrollToSection("inspect")}><Search size={15}/> Inspect</button>
           <a className="btn btn-white" href={`https://wa.me/${whatsAppNumber}?text=${message}`}>Enquire</a>
         </div>
 
         <div className="clean-tools">
-          <button className="btn btn-glass" onClick={() => setCleanMode(false)}>Show Details</button>
-          <button className="btn inspect-clean-btn" onClick={() => setCleanMode(false)}><Search size={15}/> Inspect</button>
+          <button type="button" className="btn btn-glass" onClick={() => setCleanMode(false)}>Show Details</button>
+          <button type="button" className="btn inspect-clean-btn" onClick={() => setInspectMenu(true)}><Search size={15}/> Inspect</button>
         </div>
       </section>
 
       <section className="mobile-car-info">
         <div className="mobile-info-stack">
-          <div className="mobile-shortcuts">
-            <button onClick={() => scrollToSection("inspect")} aria-label="Inspect"><Search size={18} /></button>
-            <button onClick={() => scrollToSection("details")} aria-label="Details"><Info size={18} /></button>
-            <button onClick={() => scrollToSection("ask")} aria-label="Ask"><Send size={18} /></button>
-            <a href={`tel:${cleanPhone}`} aria-label="Call"><PhoneCall size={18} /></a>
-          </div>
-          <InspectPills clips={car.inspectVideos} activeVideo={currentVideo} onSelect={selectInspectClip} />
+          <InspectSection car={car} activeClip={activeClip} onSelect={selectInspectClip} />
           <DetailsCard car={car} />
           <AskCard question={question} setQuestion={setQuestion} message={message} cleanPhone={cleanPhone} whatsAppNumber={whatsAppNumber} />
         </div>
       </section>
+
+      <AnimatePresence>
+        {inspectMenu && (
+          <motion.div className="inspect-menu-overlay" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
+            <motion.div className="inspect-menu" initial={{ y: 40, opacity: 0 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 40, opacity: 0 }}>
+              <div className="inspect-menu-head">
+                <div>
+                  <h2>Inspect Vehicle</h2>
+                  <p>Choose a clip. Cinema view stays on.</p>
+                </div>
+                <button type="button" onClick={() => setInspectMenu(false)}><X size={20}/></button>
+              </div>
+              <InspectPills clips={car.inspectVideos} activeClip={activeClip} onSelect={selectInspectClip} compact />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </main>
   );
 }

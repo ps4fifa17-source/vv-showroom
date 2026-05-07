@@ -25,7 +25,6 @@ export default function PremiumVideo({ src, className = "", wrapperClassName = "
     window.addEventListener("pageshow", attemptPlay);
     window.addEventListener("focus", attemptPlay);
     document.addEventListener("visibilitychange", attemptPlay);
-
     return () => {
       window.removeEventListener("pageshow", attemptPlay);
       window.removeEventListener("focus", attemptPlay);
