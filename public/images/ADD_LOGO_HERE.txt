@@ -1,0 +1,10 @@
+Add your real Value Vehicles logo here.
+
+Best:
+value-logo.png
+
+Then open data/cars.js and change:
+logo: ""
+
+to:
+logo: "/images/value-logo.png"
