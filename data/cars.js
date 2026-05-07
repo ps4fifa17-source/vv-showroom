@@ -18,13 +18,13 @@ export const defaultHotspots = [
 
 export const cars = [
   {
-    slug: "hyundai-tucson",
-    title: "Hyundai Tucson",
-    price: "£POA",
-    mileage: "Mileage TBC",
-    fuel: "Fuel TBC",
-    gearbox: "Gearbox TBC",
-    body: "SUV",
+    slug: "hyundai-i10",
+    title: "Hyundai i10",
+    price: "£6,495",
+    mileage: "31,569",
+    fuel: "Petrol",
+    gearbox: "Manual",
+    body: "Hatchback",
     status: "Available",
     teaserVideo: "https://res.cloudinary.com/ddtyeuc0u/video/upload/q_auto/f_auto/v1778163604/sample-portrait_f0w6hk.mp4",
     walkaroundVideo: "https://res.cloudinary.com/ddtyeuc0u/video/upload/q_auto/f_auto/v1778163742/lanscape-sample_gk4fqy.mp4",
