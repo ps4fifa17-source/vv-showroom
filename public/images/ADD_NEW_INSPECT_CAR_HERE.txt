@@ -1,1 +1,1 @@
-Replace public/images/inspect-car.png with your new neutral monochrome inspect car. Keep the exact filename.
+This version includes an auto-cleaned transparent inspect-car.png. For best results, replace with a proper transparent PNG car only.

@@ -48,6 +48,11 @@ export default function Showroom({ car }) {
     return () => document.body.classList.remove("no-scroll");
   }, [inspectOpen]);
 
+  useEffect(() => {
+    document.body.classList.toggle("clean-site", cleanMode);
+    return () => document.body.classList.remove("clean-site");
+  }, [cleanMode]);
+
   function jumpTo(seconds) {
     const video = videoRef.current;
     if (!video) return;
@@ -64,7 +69,7 @@ export default function Showroom({ car }) {
     <main className={`showroom-page ${cleanMode ? "clean-mode" : ""}`} style={{ "--accent": dealership.accent, "--accent2": dealership.accent2 }}>
       <section className="showroom-video-area">
         <img className="walk-video" src={car.poster} alt="" aria-hidden="true" />
-        <video ref={videoRef} className="walk-video" src={car.walkaroundVideo} poster={car.poster} autoPlay muted loop playsInline controls preload="metadata" />
+        <video ref={videoRef} className="walk-video" src={car.walkaroundVideo} poster={car.poster} autoPlay muted loop playsInline controls={!cleanMode} preload="metadata" />
         <div className="video-gradient" />
 
         <motion.div className="showroom-overlay" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.65, ease: [0.2, 0.8, 0.2, 1] }}>

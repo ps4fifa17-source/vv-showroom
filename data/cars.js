@@ -10,10 +10,10 @@ export const dealership = {
 
 export const defaultHotspots = [
   { label: "Front", time: 0, x: 17, y: 56 },
-  { label: "Wheels", time: 18, x: 42, y: 70 },
-  { label: "Interior", time: 35, x: 51, y: 43 },
-  { label: "Rear", time: 65, x: 83, y: 56 },
-  { label: "Condition", time: 95, x: 64, y: 52 }
+  { label: "Wheels", time: 18, x: 33, y: 58 },
+  { label: "Interior", time: 35, x: 50, y: 47 },
+  { label: "Rear", time: 65, x: 82, y: 56 },
+  { label: "Condition", time: 95, x: 61, y: 56 }
 ];
 
 export const cars = [
