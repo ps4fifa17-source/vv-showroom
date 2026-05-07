@@ -1,27 +1,22 @@
-# Value Vehicles Showroom V14 Calibrated
+# Value Vehicles Showroom V15 Clean Inspect
 
-## V14 fixes
-- Added /calibrate page to accurately drag hotspot dots onto the inspect image.
-- Inspect mode uses one fixed image wrapper, so dot coordinates behave consistently on Mac and phone.
-- Inspect opens with car visible immediately on mobile. No scrolling to find it.
-- Clean View is now a real page-level mode. It hides the header, overlays, gradients and bottom dock.
-- Mobile still has Details / Ask / Inspect underneath the video page when not in clean mode.
-- Desktop side panel scrolls if there is not enough height.
+## V15 fixes
+- Clean View now applies a body-level class, so it hides the whole interface including the header.
+- Clean View removes native video controls while active.
+- Clean View makes the video fixed fullscreen.
+- Includes an auto-cleaned transparent inspect-car.png placeholder.
+- Inspect frame no longer shows a black rectangle if the image has transparency.
+- Calibration page remains at /calibrate for dot placement.
+
+## Important
+If you replace inspect-car.png with a normal image that has a black background, the black box will return.
+You need a true transparent PNG: car only, transparent background.
 
 ## Calibrate hotspots
 Open:
 /calibrate
 
-Drag the dots onto the car.
-Copy the code into data/cars.js.
-
-## Replace inspect car
-public/images/inspect-car.png
-
-## Add logo
-public/images/value-logo.png
-Then in data/cars.js set:
-logo: "/images/value-logo.png"
+Drag dots and copy code into data/cars.js.
 
 ## Upload to GitHub
 Upload:
