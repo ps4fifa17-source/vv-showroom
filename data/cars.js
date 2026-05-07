@@ -22,11 +22,11 @@ export const cars = [
     walkaroundVideo: "/videos/sample-landscape.mp4",
     details: [["Mileage","TBC"],["Fuel","TBC"],["Gearbox","TBC"],["Body","SUV"]],
     inspectVideos: [
-      { label: "Interior", icon: "seat", video: "/videos/sample-landscape.mp4" },
-      { label: "Wheels", icon: "wheel", video: "/videos/sample-landscape.mp4" },
-      { label: "Front", icon: "front", video: "/videos/sample-landscape.mp4" },
-      { label: "Rear", icon: "rear", video: "/videos/sample-landscape.mp4" },
-      { label: "Condition", icon: "shield", video: "/videos/sample-landscape.mp4" }
+      { label: "Interior", icon: "seat", video: "/videos/sample-landscape.mp4", preview: "/videos/sample-portrait.mp4" },
+      { label: "Wheels", icon: "wheel", video: "/videos/sample-landscape.mp4", preview: "/videos/sample-portrait.mp4" },
+      { label: "Front", icon: "front", video: "/videos/sample-landscape.mp4", preview: "/videos/sample-portrait.mp4" },
+      { label: "Rear", icon: "rear", video: "/videos/sample-landscape.mp4", preview: "/videos/sample-portrait.mp4" },
+      { label: "Condition", icon: "shield", video: "/videos/sample-landscape.mp4", preview: "/videos/sample-portrait.mp4" }
     ]
   },
   {
@@ -42,11 +42,11 @@ export const cars = [
     walkaroundVideo: "/videos/sample-landscape.mp4",
     details: [["Mileage","TBC"],["Fuel","Petrol"],["Gearbox","TBC"],["Body","Hatchback"]],
     inspectVideos: [
-      { label: "Interior", icon: "seat", video: "/videos/sample-landscape.mp4" },
-      { label: "Wheels", icon: "wheel", video: "/videos/sample-landscape.mp4" },
-      { label: "Front", icon: "front", video: "/videos/sample-landscape.mp4" },
-      { label: "Rear", icon: "rear", video: "/videos/sample-landscape.mp4" },
-      { label: "Condition", icon: "shield", video: "/videos/sample-landscape.mp4" }
+      { label: "Interior", icon: "seat", video: "/videos/sample-landscape.mp4", preview: "/videos/sample-portrait.mp4" },
+      { label: "Wheels", icon: "wheel", video: "/videos/sample-landscape.mp4", preview: "/videos/sample-portrait.mp4" },
+      { label: "Front", icon: "front", video: "/videos/sample-landscape.mp4", preview: "/videos/sample-portrait.mp4" },
+      { label: "Rear", icon: "rear", video: "/videos/sample-landscape.mp4", preview: "/videos/sample-portrait.mp4" },
+      { label: "Condition", icon: "shield", video: "/videos/sample-landscape.mp4", preview: "/videos/sample-portrait.mp4" }
     ]
   }
 ];

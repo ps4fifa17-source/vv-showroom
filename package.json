@@ -1,6 +1,6 @@
 {
-  "name": "value-vehicles-showroom-v18-mobile-fix",
-  "version": "18.0.0",
+  "name": "value-vehicles-showroom-v19-layout-repair",
+  "version": "19.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

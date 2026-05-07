@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-export default function PremiumVideo({ src, className = "", wrapperClassName = "" }) {
+export default function PremiumVideo({ src, wrapperClassName = "", videoClassName = "" }) {
   const ref = useRef(null);
   const [ready, setReady] = useState(false);
 
@@ -10,7 +10,7 @@ export default function PremiumVideo({ src, className = "", wrapperClassName = "
     const video = ref.current;
     if (!video || !src) return;
 
-    async function attemptPlay() {
+    async function play() {
       const el = ref.current;
       if (!el) return;
       el.muted = true;
@@ -21,14 +21,15 @@ export default function PremiumVideo({ src, className = "", wrapperClassName = "
       } catch (_) {}
     }
 
-    attemptPlay();
-    window.addEventListener("pageshow", attemptPlay);
-    window.addEventListener("focus", attemptPlay);
-    document.addEventListener("visibilitychange", attemptPlay);
+    play();
+    window.addEventListener("pageshow", play);
+    window.addEventListener("focus", play);
+    document.addEventListener("visibilitychange", play);
+
     return () => {
-      window.removeEventListener("pageshow", attemptPlay);
-      window.removeEventListener("focus", attemptPlay);
-      document.removeEventListener("visibilitychange", attemptPlay);
+      window.removeEventListener("pageshow", play);
+      window.removeEventListener("focus", play);
+      document.removeEventListener("visibilitychange", play);
     };
   }, [src]);
 
@@ -36,7 +37,7 @@ export default function PremiumVideo({ src, className = "", wrapperClassName = "
     <div className={`video-shell ${ready ? "video-ready" : ""} ${wrapperClassName}`}>
       <video
         ref={ref}
-        className={className}
+        className={videoClassName}
         src={src}
         autoPlay
         muted

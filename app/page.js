@@ -5,7 +5,6 @@ import { cars, dealership } from "../data/cars";
 
 export default function Home() {
   const heroVideo = cars[0]?.teaserVideo || "/videos/sample-portrait.mp4";
-
   return (
     <>
       <Header />
@@ -23,19 +22,13 @@ export default function Home() {
             </div>
           </div>
         </section>
-
         <section id="stock" className="feed-zone">
           <div className="container">
             <div className="feed-head">
-              <div>
-                <h2>Video stock</h2>
-                <p className="muted">Tap a portrait space to enter the showroom.</p>
-              </div>
+              <div><h2>Video stock</h2><p className="muted">Tap a portrait space to enter the showroom.</p></div>
               <p className="muted">{cars.length} shown</p>
             </div>
-            <div className="portrait-rail">
-              {cars.map((car) => <PortraitCard key={car.slug} car={car} />)}
-            </div>
+            <div className="portrait-rail">{cars.map((car) => <PortraitCard key={car.slug} car={car} />)}</div>
           </div>
         </section>
       </main>

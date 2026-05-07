@@ -1,1 +1,1 @@
-Use Cloudinary URLs in data/cars.js. Local videos are fallback/testing.
+Use Cloudinary URLs in data/cars.js. Local videos are only fallback/testing.
