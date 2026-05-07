@@ -2,7 +2,7 @@ export const dealership = {
   name: "Value Vehicles",
   phone: "01621 928100",
   whatsapp: "01621928100",
-  logo: "",
+  logo: "/images/value-logo.png",
   accent: "#732b97",
   accent2: "#b85cff",
   tagline: "Step inside the car before you visit.",
