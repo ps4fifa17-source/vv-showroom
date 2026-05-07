@@ -1,3 +1,0 @@
-Add:
-sample-portrait.mp4
-sample-landscape.mp4
