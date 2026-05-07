@@ -26,8 +26,8 @@ export const cars = [
     gearbox: "Gearbox TBC",
     body: "SUV",
     status: "Available",
-    teaserVideo: "/videos/sample-portrait.mp4",
-    walkaroundVideo: "/videos/sample-landscape.mp4",
+    teaserVideo: "https://res.cloudinary.com/ddtyeuc0u/video/upload/q_auto/f_auto/v1778163604/sample-portrait_f0w6hk.mp4",
+    walkaroundVideo: "https://res.cloudinary.com/ddtyeuc0u/video/upload/q_auto/f_auto/v1778163742/lanscape-sample_gk4fqy.mp4",
     poster: "/images/sample-poster.svg",
     details: [["Mileage","TBC"],["Fuel","TBC"],["Gearbox","TBC"],["Body","SUV"]],
     hotspots: defaultHotspots
