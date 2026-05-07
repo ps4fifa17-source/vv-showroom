@@ -1,0 +1,17 @@
+{
+  "name": "value-vehicles-showroom-v13-premium",
+  "version": "13.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "14.2.5",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "framer-motion": "11.3.24",
+    "lucide-react": "0.468.0"
+  }
+}
